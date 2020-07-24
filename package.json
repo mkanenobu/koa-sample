@@ -11,12 +11,13 @@
   "dependencies": {
     "@types/koa": "^2.11.3",
     "koa": "^2.13.0",
-    "koa-json": "^2.0.2"
+    "koa-json": "^2.0.2",
+    "koa-router": "^9.1.0"
   },
   "devDependencies": {
+    "@types/koa-json": "^2.0.18",
+    "@types/koa-router": "^7.4.1",
     "nodemon": "^2.0.4",
-    "ts-node": "^8.10.2",
-    "ts-node-dev": "^1.0.0-pre.55",
     "typescript": "^3.9.7"
   }
 }

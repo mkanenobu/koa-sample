@@ -1,9 +1,15 @@
 import Koa from "koa";
+import Router from "koa-router";
 
 const app = new Koa();
+const router = new Router();
 
-app.use(async (ctx) => {
-  ctx.body = "Hello World";
+router.get("/", (ctx) => {
+  ctx.body = "Hello, World!";
 });
 
-app.listen(3000);
+app.use(router.routes()).use(router.allowedMethods());
+
+const port = 3000;
+
+app.listen(port);
