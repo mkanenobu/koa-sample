@@ -22,6 +22,9 @@ jobs:
       with:
         node-version: ${{ steps.set_versions.outputs.node }}
 
+    - name: Copy prisma env
+      run: cp prisma/.env.dev prisma/.env
+
     - name: Setup yarn
       run: npm install --global yarn
 
