@@ -7,4 +7,4 @@ uses
 - jest
 
 TODO
-- [ ] Add DB fro testing
+- [ ] Add DB for testing
