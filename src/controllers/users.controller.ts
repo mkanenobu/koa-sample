@@ -1,11 +1,15 @@
 import { db } from "./db";
 
 export class UserController {
-  static getAll() {
-    return db.user.findMany();
+  static async getAll() {
+    const users = await db.user.findMany();
+    db.disconnect();
+    return users;
   }
 
-  static findById({ id }: { id: string }) {
-    // return MockDB.find((user) => user.id === Number(id));
+  static async findById(params: { [key in string]: string }) {
+    const user = await db.user.findOne({ where: { id: Number(params.id) } });
+    db.disconnect();
+    return user;
   }
 }
