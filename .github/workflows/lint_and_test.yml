@@ -33,7 +33,7 @@ jobs:
       run: yarn
 
     - name: Setup DB
-      run: yarn prisma generate && yarn prisma migrate save --experimental --create-db && yarn prisma migrate up --experimental --create-db
+      run: yarn db-apply && yarn db-seed
 
     - name: ESLint
       run: yarn lint
