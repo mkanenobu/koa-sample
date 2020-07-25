@@ -13,4 +13,19 @@ describe("users", () => {
       expect.arrayContaining(["John", "Lisa", "Aria", "Kim"])
     );
   });
+
+  describe("/users/:id", () => {
+    test("returns User if exists", async () => {
+      const response = await request(app.callback()).get("/users/1");
+      expect(response.status).toBe(200);
+
+      const body = JSON.parse(response.text);
+      expect(body.name).toBe("John");
+    });
+
+    test("returns 404 is not exists", async () => {
+      const response = await request(app.callback()).get("/users/-1");
+      expect(response.status).toBe(404);
+    });
+  });
 });
