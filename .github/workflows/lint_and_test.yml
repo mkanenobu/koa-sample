@@ -8,7 +8,7 @@ on:
 
 jobs:
   lint-and-test:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
@@ -33,7 +33,7 @@ jobs:
       run: yarn
 
     - name: Setup DB
-      run: yarn db-apply
+      run: yarn prisma generate && yarn prisma migrate save --experimental --create-db && yarn prisma migrate up --experimental --create-db
 
     - name: ESLint
       run: yarn lint
