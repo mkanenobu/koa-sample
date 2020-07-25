@@ -22,9 +22,6 @@ jobs:
       with:
         node-version: ${{ steps.set_versions.outputs.node }}
 
-    - name: Install SQLite client
-      run: sudo apt install sqlite
-
     - name: Copy prisma env
       run: cp .env.dev .env
       working-directory: ./prisma
