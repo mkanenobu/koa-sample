@@ -1,0 +1,36 @@
+name: Lint and Test
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set versions
+      id: set_versions
+      run: echo "##[set-output name=node;]$(cat ./.node-version)"
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ steps.set_versions.outputs.node }}
+
+    - name: Setup yarn
+      run: npm install --global yarn
+
+    - name: Setup DB
+      run: yarn db-seed
+
+    - name: ESLint
+      run: yarn lint
+
+    - name: Test
+      run: yarn test
+
