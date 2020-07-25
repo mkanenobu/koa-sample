@@ -26,7 +26,8 @@ jobs:
       run: sudo apt install sqlite
 
     - name: Copy prisma env
-      run: cp prisma/.env.test prisma/.env
+      run: cp .env.test .env
+      working-directory: ./prisma
 
     - name: Setup yarn
       run: npm install --global yarn
