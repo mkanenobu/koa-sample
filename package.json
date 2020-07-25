@@ -6,15 +6,19 @@
   "scripts": {
     "build": "tsc",
     "start": "node ./dist/index.js",
+    "db-apply": "prisma generate",
+    "prisma-studio": "prisma studio --experimental",
     "dev": "nodemon"
   },
   "dependencies": {
+    "@prisma/client": "2.3.0",
     "@types/koa": "^2.11.3",
     "koa": "^2.13.0",
     "koa-json": "^2.0.2",
     "koa-router": "^9.1.0"
   },
   "devDependencies": {
+    "@prisma/cli": "2.3.0",
     "@types/koa-json": "^2.0.18",
     "@types/koa-router": "^7.4.1",
     "nodemon": "^2.0.4",
