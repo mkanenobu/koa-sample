@@ -25,6 +25,9 @@ jobs:
     - name: Setup yarn
       run: npm install --global yarn
 
+    - name: Setup packages
+      run: yarn
+
     - name: Setup DB
       run: yarn db-seed
 
