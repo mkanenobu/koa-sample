@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "start": "node ./dist/index.js",
-    "db-apply": "prisma migrate up --experimental --create-db && prisma generate",
+    "db-apply": "prisma generate && prisma migrate up --experimental --create-db",
     "db-drop": "rm -f ./prisma/dev.db",
     "db-seed": "yarn db-drop && yarn db-apply && ts-node ./prisma/seeds/index.ts",
     "prisma-studio": "prisma studio --experimental",
